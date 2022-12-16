@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">WonderLand</string>
 
-    <string name="title_1">Cool card</string>
-    <string name="title_2">Ok card</string>
-    <string name="title_3">Bad card</string>
-    <string name="title_4">Ugly card</string>
-
-    <string name="text_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum.</string>
+    <string name="title_1">天气</string>
+    <string name="title_2">相册</string>
+    <string name="title_3">纪念日</string>
+    <string name="title_4">备忘</string>
+    <string name="text_1">test test test</string>
 </resources>

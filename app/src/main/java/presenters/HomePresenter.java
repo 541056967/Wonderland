@@ -2,14 +2,6 @@ package presenters;
 
 import interfaces.IHomeContract;
 
-public class HomePresenter implements IHomeContract.IHomeView {
-    @Override
-    public void initViews() {
+public class HomePresenter implements IHomeContract.IHomePresenter {
 
-    }
-
-    @Override
-    public void setListener() {
-
-    }
 }

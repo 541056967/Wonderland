@@ -22,9 +22,16 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
         mBaseElevation = baseElevation;
 
         for(int i = 0; i< 5; i++){
-            addCardFragment(new CardFragment());
+            addCardFragment(new CardFragment("hello", "world"));
         }
     }
+
+    public CardFragmentPagerAdapter(FragmentManager fm, float baseElevation, List<CardFragment> list) {
+        super(fm);
+        mFragments = list;
+        mBaseElevation = baseElevation;
+    }
+
 
     @Override
     public float getBaseElevation() {
@@ -47,8 +54,8 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        Object fragment = super.instantiateItem(container, position);
+    public CardFragment instantiateItem(ViewGroup container, int position) {
+        CardFragment fragment = (CardFragment) super.instantiateItem(container, position);
         mFragments.set(position, (CardFragment) fragment);
         return fragment;
     }

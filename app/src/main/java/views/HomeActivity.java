@@ -13,25 +13,22 @@ import android.widget.CompoundButton;
 import com.example.wonderland.R;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.IHomeContract;
+import viewpager.CardFragment;
 import viewpager.CardFragmentPagerAdapter;
 import viewpager.CardItem;
 import viewpager.CardPagerAdapter;
 import viewpager.ShadowTransformer;
 
-public class HomeActivity extends AppCompatActivity implements IHomeContract.IHomeView, View.OnClickListener,
-        CompoundButton.OnCheckedChangeListener {
+public class HomeActivity extends AppCompatActivity implements IHomeContract.IHomeView{
 
-
-    private Button mButton;
     private ViewPager mViewPager;
 
-    private CardPagerAdapter mCardAdapter;
-    private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
-
-    private boolean mShowingFragments = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,25 +40,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeContract.IHo
 
     @Override
     public void initViews() {
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mButton = (Button) findViewById(R.id.cardTypeBtn);
-        ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
-        mButton.setOnClickListener(this);
-
-        mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_4, R.string.text_1));
-        mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
-                dpToPixels(2, this));
-
-        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
-        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
-
-        mViewPager.setAdapter(mCardAdapter);
-        mViewPager.setPageTransformer(false, mCardShadowTransformer);
-        mViewPager.setOffscreenPageLimit(3);
+        initViewPager();
     }
 
     @Override
@@ -69,29 +48,29 @@ public class HomeActivity extends AppCompatActivity implements IHomeContract.IHo
 
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean b) {
-        mCardShadowTransformer.enableScaling(b);
-        mFragmentCardShadowTransformer.enableScaling(b);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (!mShowingFragments) {
-            mButton.setText("Views");
-            mViewPager.setAdapter(mFragmentCardAdapter);
-            mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
-        } else {
-            mButton.setText("Fragments");
-            mViewPager.setAdapter(mCardAdapter);
-            mViewPager.setPageTransformer(false, mCardShadowTransformer);
-        }
-
-        mShowingFragments = !mShowingFragments;
-    }
-
-
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
+    }
+
+    @Override
+    public void initViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
+                dpToPixels(2, this), getCardFragments());
+        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
+        mViewPager.setAdapter(mFragmentCardAdapter);
+        mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
+        mViewPager.setOffscreenPageLimit(3);
+        mFragmentCardShadowTransformer.enableScaling(true);
+    }
+
+    @Override
+    public List<CardFragment> getCardFragments() {
+        ArrayList<CardFragment> cardFragments = new ArrayList<>();
+        cardFragments.add(new CardFragment(getResources().getString(R.string.title_1), getResources().getString(R.string.text_1)));
+        cardFragments.add(new CardFragment(getResources().getString(R.string.title_2), getResources().getString(R.string.text_1)));
+        cardFragments.add(new CardFragment(getResources().getString(R.string.title_3), getResources().getString(R.string.text_1)));
+        cardFragments.add(new CardFragment(getResources().getString(R.string.title_4), getResources().getString(R.string.text_1)));
+        return cardFragments;
     }
 }
