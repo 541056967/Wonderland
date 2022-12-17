@@ -17,21 +17,21 @@
 
         <ImageView
             android:id="@+id/iv1"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:src="@drawable/spot1" />
 
         <ImageView
             android:id="@+id/iv2"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/spot2" />
 
         <ImageView
             android:id="@+id/iv3"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/spot2" />
     </LinearLayout>
@@ -43,8 +43,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="@color/blue"
+        android:text="Let's go~"
+        android:background="@drawable/btn_shape"
         android:textColor="@android:color/white"
         android:visibility="gone" />
+
 
 </RelativeLayout>

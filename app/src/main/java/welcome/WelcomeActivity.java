@@ -39,9 +39,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void initData() {
         fragments = new ArrayList<>();
-        fragments.add(new WelcomeFragment(R.drawable.test));
-        fragments.add(new WelcomeFragment(R.drawable.test));
-        fragments.add(new WelcomeFragment(R.drawable.test));
+        fragments.add(new WelcomeFragment(R.drawable.firstday));
+        fragments.add(new WelcomeFragment(R.drawable.firstyear));
+        fragments.add(new WelcomeFragment(R.drawable.secondyear));
     }
 
     public void initViews() {
