@@ -1,4 +1,4 @@
-package welcome;
+package views.welcome;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

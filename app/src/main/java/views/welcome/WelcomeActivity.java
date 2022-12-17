@@ -1,4 +1,4 @@
-package welcome;
+package views.welcome;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,7 +18,8 @@ import com.example.wonderland.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import views.HomeActivity;
+import views.home.HomeActivity;
+import views.webconfig.WebConfigActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -59,7 +60,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, WebConfigActivity.class);
                 startActivity(intent);
             }
         });

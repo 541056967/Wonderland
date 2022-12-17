@@ -1,4 +1,4 @@
-package views;
+package views.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;

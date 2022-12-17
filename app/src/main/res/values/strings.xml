@@ -6,4 +6,10 @@
     <string name="title_3">纪念日</string>
     <string name="title_4">备忘</string>
     <string name="text_1">test test test</string>
+
+    <string name="wifi_ssid">WIFI_SSID</string>
+    <string name="wifi_password">WIFI_PASSWORD</string>
+
+    <string name="config">config</string>
+    <string name="login">login</string>
 </resources>
