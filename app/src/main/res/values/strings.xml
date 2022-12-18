@@ -12,4 +12,6 @@
 
     <string name="config">config</string>
     <string name="login">login</string>
+
+    <string name="title_tab_start_date">START DATE / END DATE</string>
 </resources>
