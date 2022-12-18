@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.example.wonderland.MainActivity;
 import com.example.wonderland.R;
 
+import views.photoupload.PhotoUploadActivity;
+
 public class CardFragment extends Fragment {
 
     private CardView mCardView;
@@ -45,7 +47,7 @@ public class CardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println(title);
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), PhotoUploadActivity.class);
                 startActivity(intent);
             }
         });
