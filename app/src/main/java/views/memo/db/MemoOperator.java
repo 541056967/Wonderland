@@ -1,23 +1,25 @@
 package views.memo.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.yingclock.CalendarUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import utils.CalendarUtil;
+
 
 public class MemoOperator {
-    private memo.DBHelper dbHelper;
+    private DBHelper dbHelper;
     CalendarUtil calendarUtil = new CalendarUtil();
 
     public MemoOperator(Context context) {
 
-        dbHelper = new memo.DBHelper(context);
+        dbHelper = new  DBHelper(context);
     }
 
     /**
@@ -64,6 +66,7 @@ public class MemoOperator {
      *
      * @return ArrayList
      */
+    @SuppressLint("Range")
     public ArrayList<HashMap<String, String>> getMemoList() {
         //与数据库建立连接
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -112,6 +115,7 @@ public class MemoOperator {
      * @param id
      * @return
      */
+    @SuppressLint("Range")
     public Memo getMemoById(int id) {
         //与数据库建立连接
         SQLiteDatabase db = dbHelper.getReadableDatabase();

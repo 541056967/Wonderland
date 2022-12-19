@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.wonderland.MainActivity;
 import com.example.wonderland.R;
 
+import views.memo.MemoActivity;
 import views.photoupload.PhotoUploadActivity;
 
 public class CardFragment extends Fragment {
@@ -46,8 +47,23 @@ public class CardFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(title);
-                Intent intent = new Intent(getActivity(), PhotoUploadActivity.class);
+                Intent intent;
+                switch (title) {
+                    case "天气":
+                        intent = new Intent(getActivity(), MainActivity.class);
+                        break;
+                    case "相册":
+                         intent = new Intent(getActivity(), PhotoUploadActivity.class);
+                         break;
+                    case "纪念日":
+                        intent = new Intent(getActivity(), MainActivity.class);
+                        break;
+                    case "备忘":
+                        intent = new Intent(getActivity(), MemoActivity.class);
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + title);
+                }
                 startActivity(intent);
             }
         });
@@ -61,4 +77,5 @@ public class CardFragment extends Fragment {
     public CardView getCardView() {
         return mCardView;
     }
+
 }
